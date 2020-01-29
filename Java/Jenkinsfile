@@ -1,0 +1,12 @@
+pipeline {
+    agent { node {label 'mvn'}}
+
+   stages {
+       stage('Prebuild'){
+           steps {
+               // clean before tests
+               mvn clean
+           }
+       }
+   }
+}
