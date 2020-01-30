@@ -4,20 +4,19 @@ pipeline {
    stages {
        stage('Prebuild'){
            steps {
-               echo "Start prepare to build"
+               echo "Prepare to build"
                sh 'pwd'
-               sh 'mvn --version'
-               sh 'java -version'
+               dir('./Java'){
+                   sh 'mvn clean'
+               }
            }
        }
-       stage('Build'){
+       stage('Test'){
            steps {
-               echo "build......"
-           }
-       }
-       stage('Testing'){
-           steps {
-               echo "Testing......"
+               echo "testing......"
+               dir('./Java'){
+                   sh 'mvn test'
+               }
            }
        }
    }
