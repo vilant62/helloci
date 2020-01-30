@@ -5,6 +5,9 @@ pipeline {
        stage('Prebuild'){
            steps {
                echo "Start prepare to build"
+               sh 'pwd'
+               sh 'mvn --version'
+               sh 'java -version'
            }
        }
        stage('Build'){
