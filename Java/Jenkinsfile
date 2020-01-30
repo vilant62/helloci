@@ -4,8 +4,17 @@ pipeline {
    stages {
        stage('Prebuild'){
            steps {
-               // clean before tests
-               mvn clean
+               echo "Start prepare to build"
+           }
+       }
+       stage('Build'){
+           steps {
+               echo "build......"
+           }
+       }
+       stage('Testing'){
+           steps {
+               echo "Testing......"
            }
        }
    }
